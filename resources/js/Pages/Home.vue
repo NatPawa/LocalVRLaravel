@@ -1,13 +1,16 @@
 <template>
-    <h1 class="animate__animated animate__bounce text-sky-400/50">An animated element</h1>
+    <Link></Link>
+    <Slider></Slider>
 </template>
 
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
+import Slider from "../components/Slider.vue";
 export default {
     components: {
-        Link,
-    },
+    Link,
+    Slider
+},
     props: ["test"],
 };
 </script>
