@@ -3,13 +3,13 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/covers/t99N6jPfwm4RF04wkC6Qeqoa2FP6kdWFrGgKJAhu.jpg" class="d-block w-100" alt="...">
+      <img src="/Games/covers/t99N6jPfwm4RF04wkC6Qeqoa2FP6kdWFrGgKJAhu.jpg" class="img-item d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="/covers/qUMJLNSciMuAjWBbqO63tViZpYlBpMqfTdLXPQPk.jpg" class="d-block w-100" alt="...">
+      <img src="/Games/covers/qUMJLNSciMuAjWBbqO63tViZpYlBpMqfTdLXPQPk.jpg" class="img-item d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="/covers/qUMJLNSciMuAjWBbqO63tViZpYlBpMqfTdLXPQPk.jpg" class="d-block w-100" alt="...">
+      <img src="/Games/covers/qUMJLNSciMuAjWBbqO63tViZpYlBpMqfTdLXPQPk.jpg" class="img-item d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -23,3 +23,10 @@
 </div>
 
 </template>
+
+<style scoped>
+.img-item {
+  height: 50vw;
+  width: 100%;
+}
+</style>

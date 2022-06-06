@@ -1,9 +1,6 @@
 <template>
     <div>
-        <h1>inertiajs is {{ about_us }}</h1>
-
-        <Link href="/">Go to Home</Link>
-
+        <Header/>
        <div>
         <form @submit.prevent="submitForm">
             <div class="form-group">
@@ -26,10 +23,12 @@
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
 import axios from 'axios';
+import Header from '../components/Header.vue'
 
 export default {
     components: {
         Link,
+        Header,
         props: ["about_us"],
     },
     data(){
