@@ -1,5 +1,6 @@
 <template>
     <Link></Link>
+    <h2 class="text-slate-400 hover:text-sky-400">Ejemplo</h2>
     <Slider></Slider>
 </template>
 
