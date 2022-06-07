@@ -35,6 +35,10 @@ Route::get('/game/edit', function () {
     return Inertia::render('UpdateGame', ['about_us' =>"a"]);
 });
 
+Route::get('/play', function () {
+    return Inertia::render('Play', ['about_us' =>"a"]);
+});
+
 Route::get('/me', function () {
     return Auth::user();
 });

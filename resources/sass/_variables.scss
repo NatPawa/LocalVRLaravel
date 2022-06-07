@@ -2,4 +2,41 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family: 'Montserrat', sans-serif;
+$font-family: 'Montserrat', sans-serif !important;
+
+/*
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+*/
+
+.w-10{
+  width: 10% !important;
+}
+
+.mr-2 {
+  margin-right: 1.5rem !important;
+}
+
+.mr-1 {
+  margin-right: 1.5rem !important;
+}
+
+
+.mr-5 {
+  margin-right: 3rem !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+$theme-colors: (
+  "primary": #1ba7e0,
+);
