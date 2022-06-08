@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            DeviceSeeder::class,
+            GameSeeder::class,
         ]);
 
         $this->call([
-            GameSeeder::class,
+            DeviceSeeder::class,
         ]);
     }
 }

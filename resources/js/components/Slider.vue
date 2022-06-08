@@ -33,6 +33,7 @@
 </template>
 
 <style scoped>
+
 .img-item {
   height: 50vw;
   width: 100%;

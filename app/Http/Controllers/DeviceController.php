@@ -40,6 +40,21 @@ class DeviceController extends Controller
         //
     }
 
+
+    public function searchGamesDevices(Request $request, $deviceId)
+    {
+        $searchInput = $request->input('search');
+        $games = null;
+        if(!is_null($searchInput)){
+            $searchQuery = "%$searchInput%";
+            $games = Device::all()->find($deviceId)->games()->where('name','like',$searchQuery)->get();
+        }
+        
+        return $games;
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *

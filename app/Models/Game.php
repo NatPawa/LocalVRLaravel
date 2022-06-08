@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory, Imageable;
-    protected $fillable = ['name', 'description', 'pathexe', 'urllogo', 'urlcover'];
+    protected $fillable = ['name', 'description', 'company', 'yearcreation', 'numplayers', 'pathexe', 'urllogo', 'urlcover'];
 
     public function devices()
     {

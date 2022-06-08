@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <a href="/auth/github/redirect">LogIn github</a>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

@@ -34,6 +34,7 @@ Route::post('/devices', [DeviceController::class, 'store']);
 Route::get('/devices', [DeviceController::class, 'index']);
 Route::get('/devices/{deviceName}', [DeviceController::class, 'show']);
 Route::get('/devices/{idDevice}/InLobby', [DeviceController::class, 'inLobby']);
+Route::get('/devices/{deviceId}/gameSearch', [DeviceController::class, 'searchGamesDevices']);
 
 Route::delete('/device/{id}/game/{gameId}', [DeviceController::class, 'detachGameToDevice']);
 Route::get('/device/{id}/game/{gameId}', [DeviceController::class, 'attachGameToDevice']);
@@ -59,5 +60,6 @@ Route::post('/games', [GameController::class, 'store']);
     USER
 */
 
+Route::get('/users/{id}', [UserController::class, 'showById']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
