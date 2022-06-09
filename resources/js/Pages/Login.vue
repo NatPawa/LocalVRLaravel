@@ -40,9 +40,7 @@
                             <div class="col-md-8 offset-md-4">
                                 <button v-on:click="login" class="btn btn-primary">Log In</button>
 
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{('Forgot Your Password?') }}
-                                    </a>
+                                    <a class="btn btn-link" href="#">Forgot Your Password?</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +56,7 @@
 <script>
 import axios from 'axios'
 import Header from "../components/Header.vue"
-
+import {Inertia} from "@inertiajs/inertia";
 export default {
     components: {
         Header,
@@ -75,6 +73,7 @@ export default {
           await axios.post("/login",this.fields)
           .then((response)=>{
             console.log(response.data)
+            Inertia.get("/")
           })
         } catch (err) {
           console.log(err)

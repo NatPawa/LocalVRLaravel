@@ -23,6 +23,10 @@ $spacers: (
   background-color: #1ba7e0 !important;
 }
 
+.danger-background {
+  background-color: #e0391b !important;
+}
+
 .w-10 {
   width: 10% !important;
 }
@@ -53,6 +57,86 @@ $spacers: (
 
 a {
   text-decoration: none !important;
+}
+
+.z-index1 {
+  z-index: 1;
+}
+
+.drop-down {
+  background-color: white;
+  z-index: 10;
+}
+
+.header-text {
+  font-size: clamp(0em, 2vw, 1.6em) !important;
+}
+
+.header-lvl {
+  font-size: clamp(0em, 4vw, 1.6em) !important;
+}
+
+.text-primary {
+  margin-right: clamp(0.2em, 2.5vw, 2.6em) !important;
+}
+
+.img-slider-game {
+  height: clamp(0em, 15vw, 15em) !important;
+  width: auto;
+}
+
+.img-profile-slider {
+  width: clamp(0em, 15vw, 15em) !important;
+  height: clamp(0em, 15vw, 15em) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.205);
+}
+
+.img-profile {
+  width: clamp(0em, 9vw, 5em) !important;
+  height: clamp(0em, 9vw, 5em) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.45);
+}
+
+.selected:after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  transform: scaleX(1) !important;
+  height: 2px;
+  bottom: -15%;
+  left: -10%;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -15%;
+  left: -10%;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /*!

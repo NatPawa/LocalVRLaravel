@@ -13,6 +13,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Imageable;
 
+    public function getLevel(){
+        return floor($this->points / 100); 
+    }
 
     public function partidas()
     {

@@ -22,8 +22,8 @@ class GameSeeder extends Seeder
             'yearcreation' => 1991,
             'numplayers' => 1,
             'pathexe' => '/home/pi/RetroPie/roms/genesis/Sonic The Hedgehog (USA, Europe).md',
-            'urllogo' => 'logos/eoc2bkrHkRE1APBDf8OOzuEgyY7har8WIJN9IQqV.png',
-            'urlcover' => 'covers/Sjy8vtEGG9v33ZDVOBW2E9dhklhmlVVMWdffFhNV.jpg',
+            'urllogo' => '/Games/logos/eoc2bkrHkRE1APBDf8OOzuEgyY7har8WIJN9IQqV.png',
+            'urlcover' => '/Games/covers/Sjy8vtEGG9v33ZDVOBW2E9dhklhmlVVMWdffFhNV.jpg',
         ]);
 
         DB::table('games')->insert([
@@ -33,8 +33,8 @@ class GameSeeder extends Seeder
             'yearcreation' => 1994,
             'numplayers' => 2,
             'pathexe' => '/home/pi/RetroPie/roms/genesis/Bare Knuckle - Ikari no Tetsuken ~ Streets of Rage (World).md',
-            'urllogo' => 'logos/vlPyvvgOQpUheZ5LyFg3R9xra0r4iAQuovkyKfYU.jpg',
-            'urlcover' => 'covers/qUMJLNSciMuAjWBbqO63tViZpYlBpMqfTdLXPQPk.jpg',
+            'urllogo' => '/Games/logos/vlPyvvgOQpUheZ5LyFg3R9xra0r4iAQuovkyKfYU.jpg',
+            'urlcover' => '/Games/covers/qUMJLNSciMuAjWBbqO63tViZpYlBpMqfTdLXPQPk.jpg',
         ]);
         
         DB::table('games')->insert([
@@ -44,8 +44,8 @@ class GameSeeder extends Seeder
             'yearcreation' => 1990,
             'numplayers' => 1,
             'pathexe' => "/home/pi/RetroPie/roms/genesis/Michael Jackson'\''s",
-            'urllogo' => 'logos/qNnVcKvR0KPknxbJkSiMKrZenwScrfXDBvUKxSiw.jpg',
-            'urlcover' => 'covers/t99N6jPfwm4RF04wkC6Qeqoa2FP6kdWFrGgKJAhu.jpg',
+            'urllogo' => '/Games/logos/qNnVcKvR0KPknxbJkSiMKrZenwScrfXDBvUKxSiw.jpg',
+            'urlcover' => '/Games/covers/t99N6jPfwm4RF04wkC6Qeqoa2FP6kdWFrGgKJAhu.jpg',
         ]);
         
         

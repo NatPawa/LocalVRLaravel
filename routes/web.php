@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\File;
+use App\Http\Controllers\SliderItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +21,27 @@ use Illuminate\Support\Facades\File;
 */
 
 
+/* SLIDER */
+
+Route::get('/slider', [SliderItemController::class, 'index']);
+Route::post('/slider/{sliderItemId}/image', [SliderItemController::class, 'uploadImage']);
+Route::post('/slider/edit/{sliderItemId}', [SliderItemController::class, 'updateSlider']);
+
 Route::get('/', function () {
-    return Inertia::render('Home', ['test' => 'working']);
+    return Inertia::render('Home');
 });
 
-Route::post('/game', [GameController::class, 'storelogo']);
+Route::get('/admin', function () {
+    return Inertia::render('Admin', ['about_us' =>"a"]);
+})->middleware('adminoreditor');
 
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/admin/events', function () {
+    return Inertia::render('Events/Events', ['about_us' =>"a"]);
+})->middleware('adminoreditor');
 
-Route::get('/about-us', function () {
-    return Inertia::render('About', ['about_us' =>"a"]);
-});
+Route::get('/admin/slider', function () {
+    return Inertia::render('Slider/AdminSlider');
+})->middleware('adminoreditor');
 
 Route::get('/game/edit', function () {
     return Inertia::render('UpdateGame', ['about_us' =>"a"]);
@@ -38,7 +49,7 @@ Route::get('/game/edit', function () {
 
 Route::get('/play', function () {
     return Inertia::render('Play', ['about_us' =>"a"]);
-});
+})->middleware('auth');;
 
 Route::get('/me', function () {
     return Auth::socialiteUser();
@@ -48,7 +59,6 @@ Route::get('/token', function () {
     return csrf_token();
 });
 
-
 Auth::routes();
 
 Route::get('/auth/github/redirect', function () {
@@ -57,8 +67,11 @@ Route::get('/auth/github/redirect', function () {
 
 
 Route::get('/auth/github/callback', function () {
+    
+    
     $socialiteUser = Socialite::driver('github')->user();
 
+    //Check if exist
     $user = \App\Models\User::where([
         'provider' => 'github',
         'provider_id' => $socialiteUser->getId()
@@ -66,11 +79,14 @@ Route::get('/auth/github/callback', function () {
 
     if(!$user){
 
+        //Save image in public path
         $fileContents = file_get_contents($socialiteUser->getAvatar());
         File::put(public_path() . '/users/profileimages/' . $socialiteUser->getId() . ".jpg", $fileContents);
 
         //To show picture 
         $picture = '/users/profileimages/' . $socialiteUser->getId() . ".jpg";
+
+        //Create user
         $user = \App\Models\User::create([
             'name' => $socialiteUser->getNickname(),
             'email' => $socialiteUser->getEmail(),
@@ -82,8 +98,7 @@ Route::get('/auth/github/callback', function () {
         ]);
     }
 
+    //Login and redirect to home
     \Illuminate\Support\Facades\Auth::login($user);
-    //dd($socialiteUser->getName(),$socialiteUser->getEmail(),$socialiteUser->getId(),$socialiteUser->getNickname(),$socialiteUser->getAvatar());
-    // $socialiteUser->token
     return redirect('/');
 });

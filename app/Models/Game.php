@@ -19,4 +19,8 @@ class Game extends Model
     public function matches(){
         return $this->belongsTo(Partida::class);
     }
+
+    public function events(){
+        return $this->belongsTo(Event::class);
+    }
 }

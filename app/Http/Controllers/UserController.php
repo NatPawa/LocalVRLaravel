@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Http\Resources\UserCollection;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class UserController extends Controller
 {
     public function showById(Request $request,$idUser)
     {
-        return User::all()->find($idUser);
+        return new UserCollection(User::all()->find($idUser));
     }
 
 
@@ -17,4 +18,5 @@ class UserController extends Controller
     {
         return User::with('partidas')->get();
     }
+
 }
