@@ -63,3 +63,8 @@ Route::post('/games', [GameController::class, 'store']);
 Route::get('/users/{idUser}', [UserController::class, 'showById']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
+
+
+/* LOL Stats */
+
+Route::get('lol/lastmatch/{nickname}', [UserController::class, 'showById']);

@@ -31,10 +31,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'provider',
-        'provider_id',
+        'github_id',
+        'google_id',
         'role',
-        'customcharacter',
         'points',
         'urlimage'
     ];

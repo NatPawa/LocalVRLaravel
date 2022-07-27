@@ -52,7 +52,7 @@ Route::get('/play', function () {
 })->middleware('auth');;
 
 Route::get('/me', function () {
-    return Auth::socialiteUser();
+    return Auth::user();
 });
 
 Route::get('/token', function () {
@@ -61,20 +61,54 @@ Route::get('/token', function () {
 
 Auth::routes();
 
+Route::get('/auth/google/callback', function () {
+    
+    try {
+        $user = Socialite::driver('google')->user();
+    } catch (\Exception $e) {
+        return redirect('/login');
+    }        // only allow people with @company.com to login
+ 
+    $existingUser = \App\Models\User::where('google_id', $user->id)->first();  
+
+    if($existingUser){
+        // log them in
+        auth()->login($existingUser, true);
+    } else {             
+          //Create user
+          $newUser = \App\Models\User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'points' => 0,
+            'urlimage' => $user->avatar,
+            'google_id' => $user->id,
+            'email_verified_at' => now()
+        ]);
+        auth()->login($newUser, true);
+    }
+
+    return redirect()->to('/');
+});
+
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')->with(["prompt" => "select_account"])->redirect();
+});
+
 Route::get('/auth/github/redirect', function () {
     return Socialite::driver('github')->redirect();
 });
 
+Route::get('/auth/lol/redirect', function () {
+    return Socialite::driver('riot_oauth')->redirect();
+});
 
 Route::get('/auth/github/callback', function () {
-    
-    
+
     $socialiteUser = Socialite::driver('github')->user();
 
     //Check if exist
     $user = \App\Models\User::where([
-        'provider' => 'github',
-        'provider_id' => $socialiteUser->getId()
+        'github_id' => $socialiteUser->getId()
     ])->first();
 
     if(!$user){
@@ -92,8 +126,7 @@ Route::get('/auth/github/callback', function () {
             'email' => $socialiteUser->getEmail(),
             'points' => 0,
             'urlimage' => $picture,
-            'provider' => 'github',
-            'provider_id' => $socialiteUser->getId(),
+            'github_id' => $socialiteUser->getId(),
             'email_verified_at' => now()
         ]);
     }
@@ -102,3 +135,4 @@ Route::get('/auth/github/callback', function () {
     \Illuminate\Support\Facades\Auth::login($user);
     return redirect('/');
 });
+

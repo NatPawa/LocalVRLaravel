@@ -5,10 +5,11 @@
         <div class="w-100">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex align-items-center flex-column">
                         <a href="/auth/github/redirect" class="m-4 display-6">LogIn Whit GitHub <i class="ml-2 fab fa-github"></i></a>
+                        <a href="/auth/google/redirect" class="m-4 display-6">LogIn Whit Google <i class="ml-2 fab fa-google"></i></a>
                     </div>
-                    <div>
+                    <div class="d-flex align-items-center flex-column">
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{('Email Address') }}</label>
 

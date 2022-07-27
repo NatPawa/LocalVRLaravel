@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('github_id')->nullable();
-            $table->string('password')->nullable()->change();
+            $table->string('google_id')->nullable();
         });
     }
 
@@ -27,10 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn([
-                    'github_id',
-                ]); 
-                $table->string('password')->change();
+            //
         });
     }
 };

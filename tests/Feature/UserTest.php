@@ -37,7 +37,7 @@ class UserTest extends TestCase
     {
         $response = $this->post('/login' , [
             'email' => "bernatdeulo1@gmail.com",
-            'password' => "jn246n217",
+            'password' => "",
             'remember' => "false",
         ]);
 
