@@ -19,11 +19,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            GameSeeder::class,
+        ]);
+
+        $this->call([
             DeviceSeeder::class,
         ]);
 
         $this->call([
-            GameSeeder::class,
+            SliderItemSeeder::class,
         ]);
     }
 }

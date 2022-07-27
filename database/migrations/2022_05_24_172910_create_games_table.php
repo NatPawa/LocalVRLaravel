@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
+         // ['name', 'description', 'company', 'yearcreation', 'numplayers', 'pathexe', 'urllogo', 'urlcover']
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
+            $table->longText('description');
+            $table->string('company',50);
+            $table->integer('yearcreation')->length(4)->unsigned();
+            $table->integer('numplayers')->length(3)->unsigned();
             $table->string('pathexe',255);
             $table->string('urllogo',255);
             $table->string('urlcover',255);

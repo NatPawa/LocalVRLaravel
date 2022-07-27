@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Device;
 
 class DeviceSeeder extends Seeder
 {
@@ -28,5 +29,14 @@ class DeviceSeeder extends Seeder
             'state' => 'wait',
             'ip' => '192.168.1.147',
         ]);
+
+        Device::all()->find(1)->games()->attach(1);
+        Device::all()->find(1)->games()->attach(2);
+        Device::all()->find(1)->games()->attach(3);
+
+        Device::all()->find(2)->games()->attach(1);
+        Device::all()->find(2)->games()->attach(2);
+        Device::all()->find(2)->games()->attach(3);
+
     }
 }

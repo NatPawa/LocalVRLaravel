@@ -2,28 +2,14 @@
     <div>
         <Header/>
        <div>
-        <form @submit.prevent="submitForm">
-            <div class="form-group">
-                <label for="title">Email</label>
-                <input type="text" name="id" class="form-control" id="title" placeholder="Enter ID game" v-model="formFields.email">
-            </div>
-
-            <div class="form-group">
-                <label for="title">Pass</label>
-                <input type="password" name="id" class="form-control" id="title" placeholder="Enter ID game" v-model="formFields.pass">
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" class="btn btn-success" />
-            </div>
-        </form>
+        
        </div>
     </div>
 </template>
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
 import axios from 'axios';
-import Header from '../components/Header.vue'
+import Header from '../components/HeaderAdmin.vue'
 
 export default {
     components: {
